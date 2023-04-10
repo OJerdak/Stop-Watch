@@ -1,7 +1,0 @@
-C:\Users\omarj\source\repos\StopWatch\StopWatch\bin\Debug\StopWatch.exe.config
-C:\Users\omarj\source\repos\StopWatch\StopWatch\bin\Debug\StopWatch.exe
-C:\Users\omarj\source\repos\StopWatch\StopWatch\bin\Debug\StopWatch.pdb
-C:\Users\omarj\source\repos\StopWatch\StopWatch\obj\Debug\StopWatch.csproj.AssemblyReference.cache
-C:\Users\omarj\source\repos\StopWatch\StopWatch\obj\Debug\StopWatch.csproj.CoreCompileInputs.cache
-C:\Users\omarj\source\repos\StopWatch\StopWatch\obj\Debug\StopWatch.exe
-C:\Users\omarj\source\repos\StopWatch\StopWatch\obj\Debug\StopWatch.pdb
