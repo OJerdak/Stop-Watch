@@ -8,8 +8,8 @@ namespace StopWatch.Models
 {
     public class Timer
     {
-        public DateTime StartTime { get; set; }
-        public DateTime StopTime { get; set; }
+        private DateTime StartTime { get; set; }
+        private DateTime StopTime { get; set; }
         public bool isRunning { get; set; }
         public int Duration {
             get {
