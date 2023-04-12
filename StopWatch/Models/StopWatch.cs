@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StopWatch.Models
 {
-    public class Timer
+    public class StopWatch
     {
-        public static Timer Instance;
+        public static StopWatch Instance;
 
-        static Timer()
+        static StopWatch()
         {
-            Instance = Instance ?? new Timer();
+            Instance = Instance ?? new StopWatch();
         }
 
-        private Timer()
+        private StopWatch()
         {
             Console.WriteLine("Enter 'R' to run the stopwatch and 'S' to stop it :");
         }
@@ -24,6 +20,10 @@ namespace StopWatch.Models
 
         public bool IsRunning => StartTime != null;
 
+        /// <summary>
+        /// Starts the timer
+        /// </summary>
+        /// <exception cref="InvalidOperationException"></exception>
         public void Start()
         {
             if (IsRunning)
@@ -34,6 +34,11 @@ namespace StopWatch.Models
             StartTime = DateTime.Now;
         }
 
+        /// <summary>
+        /// Stops the timer
+        /// </summary>
+        /// <returns>The latest's timer run elapsed time</returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public TimeSpan Stop()
         {
             if (!IsRunning)

@@ -1,9 +1,4 @@
-﻿using StopWatch.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace StopWatch
 {
@@ -13,7 +8,7 @@ namespace StopWatch
         {
             Console.WriteLine("Welcome to my stopwatch project, you may exit anytime you wish by entering 'E'");
 
-            var sw = Timer.Instance;
+            var sw = Models.StopWatch.Instance;
 
             var command = default(ConsoleKey);
             while (command != ConsoleKey.E)
