@@ -9,7 +9,7 @@ namespace StopWatch
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             Console.WriteLine("Welcome to my stopwatch project, you may exit anytime you wish by entering 'E'");
 
@@ -23,11 +23,13 @@ namespace StopWatch
                 {
                     if (command == ConsoleKey.R)
                     {
-                        AttemptRun(sw);
+                        sw.Start();
+                        Console.WriteLine("The timer is running press 'S' to stop it");
                     }
                     else if (command == ConsoleKey.S)
                     {
-                        AttemptStop(sw);
+                        var elapsedTime = sw.Stop();
+                        Console.WriteLine("Timer has stopped, total duration is : {0} seconds", elapsedTime.ToString("ss"));
                     }
                     else
                     {
@@ -39,28 +41,6 @@ namespace StopWatch
                     Console.WriteLine(ex.Message);
                 }
             }
-        }
-
-        private static void AttemptRun(Timer sw)
-        {
-            if (sw.IsRunning)
-            {
-                throw new InvalidOperationException("There's an existing instance of the timer already running");
-            }
-
-            sw.Start();
-            Console.WriteLine("The timer is running press 'S' to stop it");
-        }
-
-        private static void AttemptStop(Timer sw)
-        {
-            if (!sw.IsRunning)
-            {
-                throw new InvalidOperationException("There's no existing instance of the timer already running");
-            }
-
-            sw.Stop();
-            Console.WriteLine("Timer has stopped, total duration is : {0} seconds", sw.Duration);
         }
     }
 }

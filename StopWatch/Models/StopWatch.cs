@@ -8,32 +8,43 @@ namespace StopWatch.Models
 {
     public class Timer
     {
-        public static Timer Instance = new Timer();
+        public static Timer Instance;
+
+        static Timer()
+        {
+            Instance = Instance ?? new Timer();
+        }
 
         private Timer()
         {
             Console.WriteLine("Enter 'R' to run the stopwatch and 'S' to stop it :");
         }
 
-        private DateTime StartTime { get; set; }
-        private DateTime StopTime { get; set; }
-        public bool IsRunning { get; private set; }
-        public string Duration {
-            get {
-                var timeSpan = this.StopTime - this.StartTime;
-                return timeSpan.ToString("ss");
-            }
-        }
+        private DateTime? StartTime { get; set; }
+
+        public bool IsRunning => StartTime != null;
 
         public void Start()
         {
-            this.StartTime = DateTime.Now;
-            IsRunning = true;
+            if (IsRunning)
+            {
+                throw new InvalidOperationException("There's an existing instance of the timer already running");
+            }
+
+            StartTime = DateTime.Now;
         }
-        public void Stop()
+
+        public TimeSpan Stop()
         {
-            this.StopTime = DateTime.Now;
-            IsRunning = false;
+            if (!IsRunning)
+            {
+                throw new InvalidOperationException("There's no existing instance of the timer already running");
+            }
+
+            var elapsed = DateTime.Now - StartTime.Value;
+            StartTime = null;
+
+            return elapsed;
         }
     }
 }
