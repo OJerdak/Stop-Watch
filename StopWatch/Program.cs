@@ -12,51 +12,58 @@ namespace StopWatch
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to my stopwatch project, you may exit anytime you wish by entering 'E'");
-            Console.WriteLine("Enter 'R' to run the stopwatch and 'S' to stop it :");
 
-            var sw = new Timer();
+            var sw = Timer.Instance;
 
-            string input = "";
+            char command = '.';
 
-            while (input != "E")
+            while (command != 'E')
             {
-                input = Console.ReadLine();
+                command = char.ToUpper(Console.ReadKey(false).KeyChar);
+                Console.WriteLine();
 
                 try
                 {
-                    if (input == "R" && !sw.isRunning)
+                    if (command == 'R')
                     {
-                        sw.Start();
-                        sw.isRunning = true;
-                        Console.WriteLine("The timer is running press 'S' to stop it");
+                        AttemptRun(sw);
                     }
-                    else if (input == "R" && sw.isRunning)
+                    else if (command == 'S')
                     {
-                        throw new InvalidOperationException("There's an existing instance of the timer already running");
-                    }
-                    else if (input == "S" && sw.isRunning)
-                    {
-                        sw.Stop();
-                        sw.isRunning = false;
-                        Console.WriteLine("Timer has stopped, total duration is : {0} seconds", sw.Duration);
-                    }
-                    else if (input == "S" && !sw.isRunning)
-                    {
-                        sw.Stop();
-                        throw new InvalidOperationException("There's no existing instance of the timer already running");
+                        AttemptStop(sw);
                     }
                     else
                     {
                         Console.WriteLine("Please enter a valid character");
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);                    
+                    Console.WriteLine(ex.Message);
                 }
+            }
+        }
 
+        private static void AttemptRun(Timer sw)
+        {
+            if (sw.IsRunning)
+            {
+                throw new InvalidOperationException("There's an existing instance of the timer already running");
             }
 
+            sw.Start();
+            Console.WriteLine("The timer is running press 'S' to stop it");
+        }
+
+        private static void AttemptStop(Timer sw)
+        {
+            if (!sw.IsRunning)
+            {
+                throw new InvalidOperationException("There's no existing instance of the timer already running");
+            }
+
+            sw.Stop();
+            Console.WriteLine("Timer has stopped, total duration is : {0} seconds", sw.Duration);
         }
     }
 }
