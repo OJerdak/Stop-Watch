@@ -8,7 +8,7 @@ namespace StopWatch
         {
             Console.WriteLine("Welcome to my stopwatch project, you may exit anytime you wish by entering 'E'");
 
-            var sw = Models.StopWatch.Instance;
+            var sw = StopWatch.GetNewInstance;
 
             var command = default(ConsoleKey);
             while (command != ConsoleKey.E)

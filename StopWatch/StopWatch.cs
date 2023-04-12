@@ -1,20 +1,12 @@
 ﻿using System;
 
-namespace StopWatch.Models
+namespace StopWatch
 {
     public class StopWatch
     {
-        public static StopWatch Instance;
+        public static StopWatch GetNewInstance => new StopWatch();
 
-        static StopWatch()
-        {
-            Instance = Instance ?? new StopWatch();
-        }
-
-        private StopWatch()
-        {
-            Console.WriteLine("Enter 'R' to run the stopwatch and 'S' to stop it :");
-        }
+        private StopWatch() { }
 
         private DateTime? StartTime { get; set; }
 
@@ -37,7 +29,7 @@ namespace StopWatch.Models
         /// <summary>
         /// Stops the timer
         /// </summary>
-        /// <returns>The latest's timer run elapsed time</returns>
+        /// <returns>The latest timer run's elapsed time</returns>
         /// <exception cref="InvalidOperationException"></exception>
         public TimeSpan Stop()
         {
