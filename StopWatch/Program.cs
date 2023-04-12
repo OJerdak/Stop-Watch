@@ -15,20 +15,17 @@ namespace StopWatch
 
             var sw = Timer.Instance;
 
-            char command = '.';
-
-            while (command != 'E')
+            var command = default(ConsoleKey);
+            while (command != ConsoleKey.E)
             {
-                command = char.ToUpper(Console.ReadKey(false).KeyChar);
-                Console.WriteLine();
-
+                command = Console.ReadKey(true).Key;
                 try
                 {
-                    if (command == 'R')
+                    if (command == ConsoleKey.R)
                     {
                         AttemptRun(sw);
                     }
-                    else if (command == 'S')
+                    else if (command == ConsoleKey.S)
                     {
                         AttemptStop(sw);
                     }
