@@ -19,17 +19,24 @@ namespace Stackoverflow
             CreatedOn = DateTime.Now;
         }
 
+        public override string ToString()
+        {
+            return "\n Post : " +
+
+            "\n\t Issue : " + Title +
+            "\n\t Description : " + Description +
+            "\n\t Created On : " + CreatedOn.ToString("dd,MM,yyyy") +
+            "\n\t Voting Rank : " + VoteRank;
+        }
+
         public void UpVote()
         {
             VoteRank += 1;
-            Console.WriteLine("Current vote rank : {0}", VoteRank);
-
         }
 
         public void DownVote()
         {
             VoteRank -= 1;
-            Console.WriteLine("Current vote rank : {0}", VoteRank);
         }
 
     }

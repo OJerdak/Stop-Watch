@@ -41,21 +41,19 @@ namespace Stackoverflow
                 {
                     case ConsoleKey.U:
                         post.UpVote();
+                        Console.WriteLine("Current vote rank : {0}", post.VoteRank);
                         break;
+
                     case ConsoleKey.D:
                         post.DownVote();
+                        Console.WriteLine("Current vote rank : {0}", post.VoteRank);
                         break;
                 }
 
 
             }
 
-            Console.WriteLine("\n Post : ");
-
-            Console.WriteLine("\n\t Issue : {0}", post.Title);
-            Console.WriteLine("\n\t Description : {0}", post.Description);
-            Console.WriteLine("\n\t Created On : {0}", post.CreatedOn.ToString("dd,MM,yyyy"));
-            Console.WriteLine("\n\t Voting Rank : {0}", post.VoteRank);
+            Console.WriteLine(post.ToString());
 
             Console.ReadKey();
 
