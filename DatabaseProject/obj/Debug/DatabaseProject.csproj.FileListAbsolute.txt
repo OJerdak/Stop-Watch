@@ -1,0 +1,7 @@
+C:\Users\omarj\source\repos\DatabaseProject\DatabaseProject\bin\Debug\DatabaseProject.exe.config
+C:\Users\omarj\source\repos\DatabaseProject\DatabaseProject\bin\Debug\DatabaseProject.exe
+C:\Users\omarj\source\repos\DatabaseProject\DatabaseProject\bin\Debug\DatabaseProject.pdb
+C:\Users\omarj\source\repos\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.csproj.AssemblyReference.cache
+C:\Users\omarj\source\repos\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.csproj.CoreCompileInputs.cache
+C:\Users\omarj\source\repos\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.exe
+C:\Users\omarj\source\repos\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.pdb
