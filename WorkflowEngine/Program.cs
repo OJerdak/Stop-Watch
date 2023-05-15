@@ -6,20 +6,21 @@ using System.Threading.Tasks;
 
 namespace WorkflowEngine
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var workflow = new Workflow();
+	class Program
+	{
+		static void Main(string[] args)
+		{
+            BuildAndRunWorkflow();
+			Console.ReadLine();
+		}
 
-            workflow.AddActivity(new UploadVideo());
-            workflow.AddActivity(new NotifyEncoder());
-            workflow.AddActivity(new NotifyOwner());
-            workflow.AddActivity(new UpdateDatabase());
-
-            WorkflowEngine.Run(workflow);
-
-            Console.ReadLine();
-        }
-    }
+		public static void BuildAndRunWorkflow()
+		{
+            Workflow.StartWith(new UploadVideo())
+                .Add(new NotifyEncoder())
+                .Add(new NotifyOwner())
+                .Add(new UpdateDatabase())
+                .Run();
+		}
+	}
 }

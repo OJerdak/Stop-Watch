@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace WorkflowEngine
 {
-    public interface IWorkflow
-    {
-        void AddActivity( IActivity activity);
-        void RemoveActivity(IActivity activity);
+	public interface IWorkflow
+	{
+		IEnumerable<IActivity> Activities { get; }
 
-        IEnumerable<IActivity> GetActivities();
-    }
+        IWorkflow Add(IActivity activity);
+
+        void Run();
+	}
 }

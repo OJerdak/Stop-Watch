@@ -8,15 +8,12 @@ namespace WorkflowEngine
 {
     public static class WorkflowEngine
     {
-
         public static void Run(IWorkflow workflow)
         {
-
-            foreach (var activity in workflow.GetActivities())
+            foreach (var activity in workflow.Activities)
             {
                 activity.Execute();
             }
-
         }
     }
 }

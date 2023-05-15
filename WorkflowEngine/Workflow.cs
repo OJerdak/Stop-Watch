@@ -6,28 +6,31 @@ using System.Threading.Tasks;
 
 namespace WorkflowEngine
 {
-    public class Workflow : IWorkflow
-    {
-        private readonly IList<IActivity> _activities;
+	public class Workflow : IWorkflow
+	{
+		private readonly List<IActivity> _activities;
 
-        public Workflow()
-        {
-            _activities = new List<IActivity>();
-        }
+		private Workflow()
+		{
+			_activities = new List<IActivity>();
+		}
 
-        public IEnumerable<IActivity> GetActivities()
-        {
-            return _activities;
-        }
+		public IEnumerable<IActivity> Activities => _activities;
 
-        public void AddActivity(IActivity activity)
-        {
-            _activities.Add(activity);
-        }
-        
-        public void RemoveActivity(IActivity activity)
-        {
-            _activities.Add(activity);
-        }
-    }
+		public static IWorkflow StartWith(IActivity activity)
+		{
+			return new Workflow().Add(activity);
+		}
+
+		public IWorkflow Add(IActivity activity)
+		{
+			_activities.Add(activity);
+			return this;
+		}
+
+		public void Run()
+		{
+            WorkflowEngine.Run(this);
+		}
+	}
 }
