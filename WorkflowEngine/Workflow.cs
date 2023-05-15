@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WorkflowEngine
 {
-    public class Workflow
+    public class Workflow : IWorkflow
     {
         private readonly IList<IActivity> _activities;
 
@@ -15,15 +15,17 @@ namespace WorkflowEngine
             _activities = new List<IActivity>();
         }
 
-        public void Run(Activity activity)
+        public IEnumerable<IActivity> GetActivities()
         {
-            foreach(var act in _activities)
-            {
-                act.Execute();
-            }
+            return _activities;
         }
 
         public void AddActivity(IActivity activity)
+        {
+            _activities.Add(activity);
+        }
+        
+        public void RemoveActivity(IActivity activity)
         {
             _activities.Add(activity);
         }

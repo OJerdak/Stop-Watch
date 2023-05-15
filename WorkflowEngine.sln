@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkflowEngine", "WorkflowEngine\WorkflowEngine.csproj", "{26919E15-361C-44B4-8988-A2225239A026}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceExample", "InterfaceExample\InterfaceExample.csproj", "{480D66AE-1BC7-4A92-A560-699ECBD0640F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{26919E15-361C-44B4-8988-A2225239A026}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26919E15-361C-44B4-8988-A2225239A026}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26919E15-361C-44B4-8988-A2225239A026}.Release|Any CPU.Build.0 = Release|Any CPU
-		{480D66AE-1BC7-4A92-A560-699ECBD0640F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{480D66AE-1BC7-4A92-A560-699ECBD0640F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{480D66AE-1BC7-4A92-A560-699ECBD0640F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{480D66AE-1BC7-4A92-A560-699ECBD0640F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -17,7 +17,7 @@ namespace WorkflowEngine
             workflow.AddActivity(new NotifyOwner());
             workflow.AddActivity(new UpdateDatabase());
 
-            workflow.Run(new Activity());
+            WorkflowEngine.Run(workflow);
 
             Console.ReadLine();
         }
